@@ -1,10 +1,13 @@
 "use client";
 
-import { useQueryState } from "nuqs";
+import { useQueryStates, parseAsArrayOf, parseAsString } from "nuqs";
 import Board from "@/components/Board";
 
 export default function NuqsBoard() {
-  const [search, _] = useQueryState("query");
+  const [query, _] = useQueryStates({
+    query: parseAsString,
+    tags: parseAsArrayOf(parseAsString),
+  });
 
-  return <Board search={search} />;
+  return <Board query={query.query} tags={query.tags} />;
 }

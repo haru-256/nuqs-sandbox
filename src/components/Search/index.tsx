@@ -1,14 +1,13 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import React from "react";
 
-export default function Search(params: {
+export default function Search(props: {
   value: string | null;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
-  const { value, onChange } = params;
+  const { value, onChange } = props;
   return (
     <div className="w-full max-w-lg lg:max-w-xs">
-      <div className="mb-3 font-bold text-lg text-center">Search Bar</div>
       <label htmlFor="search" className="sr-only">
         Search
       </label>

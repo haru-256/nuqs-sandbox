@@ -20,7 +20,8 @@ export default function NativeSearch() {
     } else {
       params.delete("query");
     }
-    replace(`${pathName}?${params.toString()}`);
+    const paramsString = params.toString();
+    replace(paramsString ? `${pathName}?${params.toString()}` : pathName);
   };
 
   return <Search value={search} onChange={onChange} />;
