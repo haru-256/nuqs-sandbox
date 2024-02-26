@@ -9,7 +9,7 @@ export default function NativeSearch() {
   const { replace } = useRouter();
   const pathName = usePathname();
   const searchParams = useSearchParams();
-  const search = searchParams.get("query");
+  const query = searchParams.get("query");
   // 検索ボックスの値が変更されたときに呼ばれる関数
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -24,5 +24,5 @@ export default function NativeSearch() {
     replace(paramsString ? `${pathName}?${params.toString()}` : pathName);
   };
 
-  return <Search value={search} onChange={onChange} />;
+  return <Search value={query} onChange={onChange} />;
 }

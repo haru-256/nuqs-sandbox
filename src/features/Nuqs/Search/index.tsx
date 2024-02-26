@@ -5,17 +5,17 @@ import React from "react";
 import { useQueryState } from "nuqs";
 
 export default function NuqsBoard() {
-  const [search, setSearch] = useQueryState("query");
+  const [query, setQuery] = useQueryState("query");
   // 検索ボックスの値が変更されたときに呼ばれる関数
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     console.log(value);
     if (value) {
-      setSearch(value);
+      setQuery(value);
     } else {
-      setSearch(null);
+      setQuery(null);
     }
   };
 
-  return <Search value={search} onChange={onChange} />;
+  return <Search value={query} onChange={onChange} />;
 }
